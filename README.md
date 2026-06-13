@@ -234,7 +234,7 @@ After successful completion of this course, students will be able to:
 
 ## 👨‍🏫 Department
 
-**Department of Artificial Intelligence and Data Science**
+**CSE (AI, ML & DS)**
 
 ---
 
