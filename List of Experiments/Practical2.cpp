@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 100
 
@@ -17,9 +18,9 @@ int linearSearch(int a[], int n, int key)
 {
     int i;
 
-    for(i=0;i<n;i++)
+    for(i = 0; i < n; i++)
     {
-        if(a[i]==key)
+        if(a[i] == key)
             return i;
     }
 
@@ -42,20 +43,20 @@ int linearSearch(int a[], int n, int key)
 =========================================================*/
 int binarySearch(int a[], int n, int key)
 {
-    int low=0, high=n-1, mid;
+    int low = 0, high = n - 1, mid;
 
-    while(low<=high)
+    while(low <= high)
     {
-        mid=(low+high)/2;
+        mid = (low + high) / 2;
 
-        if(a[mid]==key)
+        if(a[mid] == key)
             return mid;
 
-        else if(a[mid]<key)
-            low=mid+1;
+        else if(a[mid] < key)
+            low = mid + 1;
 
         else
-            high=mid-1;
+            high = mid - 1;
     }
 
     return -1;
@@ -66,42 +67,42 @@ int main()
 {
     int a[MAX], n, i, key, ch, pos;
 
-    printf("Enter number of elements: ");
-    scanf("%d",&n);
+    cout << "Enter number of elements: ";
+    cin >> n;
 
-    printf("Enter elements:\n");
-    for(i=0;i<n;i++)
-        scanf("%d",&a[i]);
+    cout << "Enter elements:\n";
+    for(i = 0; i < n; i++)
+        cin >> a[i];
 
-    printf("Enter element to search: ");
-    scanf("%d",&key);
+    cout << "Enter element to search: ";
+    cin >> key;
 
-    printf("\nSearch Algorithms");
-    printf("\n1. Linear Search");
-    printf("\n2. Binary Search");
+    cout << "\nSearch Algorithms";
+    cout << "\n1. Linear Search";
+    cout << "\n2. Binary Search";
 
-    printf("\n\nEnter your choice: ");
-    scanf("%d",&ch);
+    cout << "\n\nEnter your choice: ";
+    cin >> ch;
 
     switch(ch)
     {
         case 1:
-            pos = linearSearch(a,n,key);
+            pos = linearSearch(a, n, key);
             break;
 
         case 2:
-            pos = binarySearch(a,n,key);
+            pos = binarySearch(a, n, key);
             break;
 
         default:
-            printf("Invalid Choice");
+            cout << "Invalid Choice";
             return 0;
     }
 
-    if(pos==-1)
-        printf("\nElement Not Found.");
+    if(pos == -1)
+        cout << "\nElement Not Found.";
     else
-        printf("\nElement Found at Position %d", pos+1);
+        cout << "\nElement Found at Position " << pos + 1;
 
     return 0;
 }

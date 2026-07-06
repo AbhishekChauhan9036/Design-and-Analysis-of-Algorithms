@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 100
 #define INF 999999
@@ -66,23 +67,22 @@ int main()
     int coin[MAX];
     int n, amount, i, ans;
 
-    printf("Enter number of coin denominations: ");
-    scanf("%d", &n);
+    cout << "Enter number of coin denominations: ";
+    cin >> n;
 
-    printf("Enter coin values:\n");
+    cout << "Enter coin values:\n";
     for(i = 0; i < n; i++)
-        scanf("%d", &coin[i]);
+        cin >> coin[i];
 
-    printf("Enter amount: ");
-    scanf("%d", &amount);
+    cout << "Enter amount: ";
+    cin >> amount;
 
     ans = coinChange(coin, n, amount);
 
     if(ans == -1)
-        printf("\nChange cannot be made.");
-
+        cout << "\nChange cannot be made.";
     else
-        printf("\nMinimum Coins Required = %d", ans);
+        cout << "\nMinimum Coins Required = " << ans;
 
     return 0;
 }

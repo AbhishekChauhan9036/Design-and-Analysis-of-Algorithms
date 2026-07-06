@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 100
 
@@ -48,11 +49,11 @@ void heapSort(int a[], int n)
     int i, temp;
 
     // Build Max Heap
-    for(i = n/2 - 1; i >= 0; i--)
+    for(i = n / 2 - 1; i >= 0; i--)
         heapify(a, n, i);
 
     // Extract elements one by one
-    for(i = n-1; i > 0; i--)
+    for(i = n - 1; i > 0; i--)
     {
         temp = a[0];
         a[0] = a[i];
@@ -65,14 +66,12 @@ void heapSort(int a[], int n)
 // Display Array
 void printArray(int a[], int n)
 {
-    int i;
+    cout << "\nSorted Array:\n";
 
-    printf("\nSorted Array:\n");
+    for(int i = 0; i < n; i++)
+        cout << a[i] << " ";
 
-    for(i = 0; i < n; i++)
-        printf("%d ", a[i]);
-
-    printf("\n");
+    cout << endl;
 }
 
 // Main Function
@@ -80,12 +79,12 @@ int main()
 {
     int a[MAX], n, i;
 
-    printf("Enter number of elements: ");
-    scanf("%d", &n);
+    cout << "Enter number of elements: ";
+    cin >> n;
 
-    printf("Enter elements:\n");
+    cout << "Enter elements:\n";
     for(i = 0; i < n; i++)
-        scanf("%d", &a[i]);
+        cin >> a[i];
 
     heapSort(a, n);
 

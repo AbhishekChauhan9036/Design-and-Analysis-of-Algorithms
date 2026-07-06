@@ -1,4 +1,6 @@
-#include <stdio.h>
+#include <iostream>
+#include <iomanip>
+using namespace std;
 
 #define MAX 10
 #define INF 9999
@@ -28,16 +30,16 @@ int main()
     int n;
     int i, j, k;
 
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    cout << "Enter number of vertices: ";
+    cin >> n;
 
-    printf("Enter Cost Matrix (Enter 9999 for Infinity):\n");
+    cout << "Enter Cost Matrix (Enter 9999 for Infinity):\n";
 
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < n; j++)
         {
-            scanf("%d", &graph[i][j]);
+            cin >> graph[i][j];
         }
     }
 
@@ -56,18 +58,18 @@ int main()
         }
     }
 
-    printf("\nShortest Distance Matrix:\n");
+    cout << "\nShortest Distance Matrix:\n";
 
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < n; j++)
         {
             if(graph[i][j] == INF)
-                printf("INF ");
+                cout << "INF ";
             else
-                printf("%4d ", graph[i][j]);
+                cout << setw(4) << graph[i][j] << " ";
         }
-        printf("\n");
+        cout << endl;
     }
 
     return 0;

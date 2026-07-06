@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 /*=========================================================
     Iterative Factorial
@@ -52,30 +53,30 @@ int main()
     int n, ch;
     long long ans;
 
-    printf("Enter a number: ");
-    scanf("%d", &n);
+    cout << "Enter a number: ";
+    cin >> n;
 
-    printf("\nFactorial Methods");
-    printf("\n1. Iterative Method");
-    printf("\n2. Recursive Method");
+    cout << "\nFactorial Methods";
+    cout << "\n1. Iterative Method";
+    cout << "\n2. Recursive Method";
 
-    printf("\n\nEnter your choice: ");
-    scanf("%d", &ch);
+    cout << "\n\nEnter your choice: ";
+    cin >> ch;
 
     switch(ch)
     {
         case 1:
             ans = iterativeFactorial(n);
-            printf("\nFactorial = %lld", ans);
+            cout << "\nFactorial = " << ans;
             break;
 
         case 2:
             ans = recursiveFactorial(n);
-            printf("\nFactorial = %lld", ans);
+            cout << "\nFactorial = " << ans;
             break;
 
         default:
-            printf("Invalid Choice");
+            cout << "Invalid Choice";
     }
 
     return 0;

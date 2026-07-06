@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 10
 #define INF 9999
@@ -31,16 +32,16 @@ int main()
     int x, y;
     int min, cost = 0;
 
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    cout << "Enter number of vertices: ";
+    cin >> n;
 
-    printf("Enter Cost Adjacency Matrix:\n");
+    cout << "Enter Cost Adjacency Matrix:\n";
 
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < n; j++)
         {
-            scanf("%d", &graph[i][j]);
+            cin >> graph[i][j];
 
             if(graph[i][j] == 0)
                 graph[i][j] = INF;
@@ -53,7 +54,7 @@ int main()
 
     selected[0] = 1;
 
-    printf("\nEdges in Minimum Spanning Tree:\n");
+    cout << "\nEdges in Minimum Spanning Tree:\n";
 
     while(edge < n - 1)
     {
@@ -75,14 +76,14 @@ int main()
             }
         }
 
-        printf("%d --> %d  Cost = %d\n", x, y, graph[x][y]);
+        cout << x << " --> " << y << "  Cost = " << graph[x][y] << endl;
 
         cost += graph[x][y];
         selected[y] = 1;
         edge++;
     }
 
-    printf("\nMinimum Cost = %d\n", cost);
+    cout << "\nMinimum Cost = " << cost << endl;
 
     return 0;
 }

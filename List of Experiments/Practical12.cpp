@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 10
 #define INF 999999
@@ -61,16 +62,16 @@ int main()
 {
     int i, j;
 
-    printf("Enter number of cities: ");
-    scanf("%d", &n);
+    cout << "Enter number of cities: ";
+    cin >> n;
 
-    printf("Enter Cost Matrix:\n");
+    cout << "Enter Cost Matrix:\n";
 
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < n; j++)
         {
-            scanf("%d", &graph[i][j]);
+            cin >> graph[i][j];
         }
     }
 
@@ -78,7 +79,7 @@ int main()
 
     tsp(0, 1, 0);
 
-    printf("\nMinimum Tour Cost = %d\n", minCost);
+    cout << "\nMinimum Tour Cost = " << minCost << endl;
 
     return 0;
 }

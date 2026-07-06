@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 10
 
@@ -27,7 +28,7 @@ void DFS(int v, int n)
     int i;
 
     visited[v] = 1;
-    printf("%d ", v);
+    cout << v << " ";
 
     for(i = 0; i < n; i++)
     {
@@ -62,7 +63,7 @@ void BFS(int start, int n)
     {
         int v = queue[front++];
 
-        printf("%d ", v);
+        cout << v << " ";
 
         for(i = 0; i < n; i++)
         {
@@ -80,26 +81,26 @@ int main()
 {
     int n, i, j, start, ch;
 
-    printf("Enter number of vertices: ");
-    scanf("%d", &n);
+    cout << "Enter number of vertices: ";
+    cin >> n;
 
-    printf("Enter Adjacency Matrix:\n");
+    cout << "Enter Adjacency Matrix:\n";
     for(i = 0; i < n; i++)
     {
         for(j = 0; j < n; j++)
         {
-            scanf("%d", &graph[i][j]);
+            cin >> graph[i][j];
         }
     }
 
-    printf("Enter starting vertex: ");
-    scanf("%d", &start);
+    cout << "Enter starting vertex: ";
+    cin >> start;
 
-    printf("\n1. DFS");
-    printf("\n2. BFS");
+    cout << "\n1. DFS";
+    cout << "\n2. BFS";
 
-    printf("\nEnter your choice: ");
-    scanf("%d", &ch);
+    cout << "\nEnter your choice: ";
+    cin >> ch;
 
     for(i = 0; i < n; i++)
         visited[i] = 0;
@@ -107,17 +108,17 @@ int main()
     switch(ch)
     {
         case 1:
-            printf("\nDFS Traversal: ");
+            cout << "\nDFS Traversal: ";
             DFS(start, n);
             break;
 
         case 2:
-            printf("\nBFS Traversal: ");
+            cout << "\nBFS Traversal: ";
             BFS(start, n);
             break;
 
         default:
-            printf("Invalid Choice");
+            cout << "Invalid Choice";
     }
 
     return 0;

@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 20
 
@@ -27,7 +28,7 @@ struct Edge
     int u, v, w;
 };
 
-struct Edge edge[MAX];
+Edge edge[MAX];
 
 int parent[MAX];
 
@@ -50,7 +51,7 @@ void Union(int a, int b)
 void sortEdges(int e)
 {
     int i, j;
-    struct Edge temp;
+    Edge temp;
 
     for(i = 0; i < e - 1; i++)
     {
@@ -71,23 +72,21 @@ int main()
 {
     int v, e;
     int i;
-    int u, w;
     int totalCost = 0;
 
-    printf("Enter number of vertices: ");
-    scanf("%d", &v);
+    cout << "Enter number of vertices: ";
+    cin >> v;
 
-    printf("Enter number of edges: ");
-    scanf("%d", &e);
+    cout << "Enter number of edges: ";
+    cin >> e;
 
-    printf("Enter Source Destination Weight:\n");
+    cout << "Enter Source Destination Weight:\n";
 
     for(i = 0; i < e; i++)
     {
-        scanf("%d %d %d",
-              &edge[i].u,
-              &edge[i].v,
-              &edge[i].w);
+        cin >> edge[i].u
+            >> edge[i].v
+            >> edge[i].w;
     }
 
     // Initialize Parent
@@ -96,7 +95,7 @@ int main()
 
     sortEdges(e);
 
-    printf("\nEdges in Minimum Spanning Tree:\n");
+    cout << "\nEdges in Minimum Spanning Tree:\n";
 
     for(i = 0; i < e; i++)
     {
@@ -107,16 +106,18 @@ int main()
         {
             Union(p1, p2);
 
-            printf("%d --> %d  Cost = %d\n",
-                   edge[i].u,
-                   edge[i].v,
-                   edge[i].w);
+            cout << edge[i].u
+                 << " --> "
+                 << edge[i].v
+                 << "  Cost = "
+                 << edge[i].w
+                 << endl;
 
             totalCost += edge[i].w;
         }
     }
 
-    printf("\nMinimum Cost = %d\n", totalCost);
+    cout << "\nMinimum Cost = " << totalCost << endl;
 
     return 0;
 }

@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 #define MAX 100
 
@@ -43,14 +44,14 @@ int knapsack(int wt[], int val[], int n, int W)
     {
         for(w = 1; w <= W; w++)
         {
-            if(wt[i-1] <= w)
+            if(wt[i - 1] <= w)
             {
-                dp[i][w] = max(val[i-1] + dp[i-1][w-wt[i-1]],
-                               dp[i-1][w]);
+                dp[i][w] = max(val[i - 1] + dp[i - 1][w - wt[i - 1]],
+                               dp[i - 1][w]);
             }
             else
             {
-                dp[i][w] = dp[i-1][w];
+                dp[i][w] = dp[i - 1][w];
             }
         }
     }
@@ -65,21 +66,21 @@ int main()
     int wt[MAX], val[MAX];
     int i;
 
-    printf("Enter number of items: ");
-    scanf("%d", &n);
+    cout << "Enter number of items: ";
+    cin >> n;
 
-    printf("Enter weights:\n");
+    cout << "Enter weights:\n";
     for(i = 0; i < n; i++)
-        scanf("%d", &wt[i]);
+        cin >> wt[i];
 
-    printf("Enter values:\n");
+    cout << "Enter values:\n";
     for(i = 0; i < n; i++)
-        scanf("%d", &val[i]);
+        cin >> val[i];
 
-    printf("Enter knapsack capacity: ");
-    scanf("%d", &W);
+    cout << "Enter knapsack capacity: ";
+    cin >> W;
 
-    printf("\nMaximum Profit = %d", knapsack(wt, val, n, W));
+    cout << "\nMaximum Profit = " << knapsack(wt, val, n, W);
 
     return 0;
 }
