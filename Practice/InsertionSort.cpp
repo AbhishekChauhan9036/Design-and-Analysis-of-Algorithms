@@ -3,10 +3,10 @@ using namespace std;
 
 /**
  * =========================================================
- *                    Bubble Sort
+ *                  Insertion Sort
  *
  * Time Complexity:
- * Best Case    : O(n)      // Already sorted (with optimization)
+ * Best Case    : O(n)
  * Average Case : O(n²)
  * Worst Case   : O(n²)
  *
@@ -21,21 +21,17 @@ using namespace std;
  * =========================================================
  */
 
-void bubbleSort(int arr[], int n) {
-    for (int i = 0; i < n - 1; i++) {
-        bool swapped = false;
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
 
-        for (int j = 0; j < n - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                int temp = arr[j];
-                arr[j] = arr[j + 1];
-                arr[j + 1] = temp;
-                swapped = true;
-            }
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
         }
 
-        if (!swapped)
-            break;
+        arr[j + 1] = key;
     }
 }
 
@@ -61,7 +57,7 @@ int main() {
     cout << "\nOriginal Array: ";
     printArray(arr, n);
 
-    bubbleSort(arr, n);
+    insertionSort(arr, n);
 
     cout << "Sorted Array: ";
     printArray(arr, n);
