@@ -18,3 +18,11 @@ arr = [12, 15, 20, 3, 9, 22, 7, 6]
 n = len(arr)
 quickSort(arr, 0, n-1)
 print(arr)
+'''
+TC -
+    Best Case : O(n log n)
+    Average Case: O(n log n)
+    Worst Case: O(n)^2
+
+SC : O(log n)
+'''
