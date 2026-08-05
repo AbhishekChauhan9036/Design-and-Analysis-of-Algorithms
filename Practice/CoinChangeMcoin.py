@@ -3,7 +3,6 @@ class Solution:
     def minCoins(self, coins, amt):
         dp = [float('inf')] * (amt + 1)
         dp[0] = 0
-
         for cur in range(1, amt + 1):
             for coin in coins:
                 if cur >= coin:
