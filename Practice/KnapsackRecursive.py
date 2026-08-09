@@ -17,10 +17,8 @@ def knapsack(weights, values, capacity, n):
 weights = [2, 3, 4, 5]
 values = [3, 4, 5, 6]
 capacity = 5
-
 n = len(weights)
 print("Maximum Value:", knapsack(weights, values, capacity, n))
-
 '''
 Time: O(2^n)
 Space: O(n) — recursion call stack
