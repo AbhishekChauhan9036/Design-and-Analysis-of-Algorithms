@@ -9,7 +9,6 @@ edges = [
 ]
 vertices = 4
 
-# Kruskal's Algorithm
 def kruskal():
     parent = list(range(vertices))
     def find(x):
@@ -25,8 +24,6 @@ def kruskal():
             mst.append((u, v, weight))
     return mst
 
-
-# Prim's Algorithm
 def prim():
     graph = [[] for _ in range(vertices)]
     for weight, u, v in edges:
@@ -53,3 +50,38 @@ print("Prim's MST:", prim())
 # Complexity:
 # Kruskal's - TC: O(E log E), SC: O(V)
 # Prim's    - TC: O(E log V), SC: O(V + E)
+
+
+# Kruskal's Algorithm
+"""
+1. Sort all edges in increasing order of weight.
+2. Create a separate set for each vertex.
+3. For each edge (u, v) in sorted order:
+      If u and v belong to different sets:
+          Add (u, v) to MST.
+          Union the sets of u and v.
+4. Repeat until MST contains V - 1 edges.
+5. Return MST.
+
+Kruskal's - TC: O(E log E), SC: O(V)
+"""
+
+
+# Prim's Algorithm
+'''
+1. Select any starting vertex s.
+2. Set key[s] = 0 and all other keys = ∞.
+3. Insert (0, s) into Min-Heap.
+4. While Min-Heap is not empty:
+      u = Extract-Min()
+      Mark u as visited.
+5. For each adjacent vertex v of u:
+      If v is unvisited and weight(u,v) < key[v]:
+          key[v] = weight(u,v)
+          parent[v] = u
+          Insert (key[v], v) into Min-Heap.
+6. Add all parent edges to MST.
+7. Return MST.
+
+TC: O(E log V), SC: O(V + E)
+'''
