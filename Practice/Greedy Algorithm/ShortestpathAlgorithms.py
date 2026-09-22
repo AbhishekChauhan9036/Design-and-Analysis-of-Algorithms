@@ -50,3 +50,37 @@ for row in floyd_warshall(matrix):
 # Complexity:
 # Dijkstra - TC: O((V+E) log V), SC: O(V)
 # Floyd-Warshall - TC: O(V^3), SC: O(V^2)
+
+# Dijkstra's Algorithm
+'''
+1. Set the distance of the start vertex to 0 and all other vertices to infinity.
+2. Insert the start vertex into a priority queue with distance 0.
+3. While the priority queue is not empty:
+      Remove the vertex u with the smallest distance.
+      If the distance is greater than the current distance of u:
+          Continue.
+      For each edge (u, v) with weight w:
+          Calculate new distance = distance[u] + w.
+          If new distance < distance[v]:
+              Update distance[v].
+              Insert (new distance, v) into the priority queue.
+4. Return the shortest distances from the start vertex.
+
+Dijkstra's - TC: O((V+E) log V), SC: O(V)
+'''
+
+# Floyd-Warshall Algorithm
+'''
+1. Create a distance matrix using the given graph matrix.
+2. For each intermediate vertex k:
+      For each source vertex i:
+          For each destination vertex j:
+              Update:
+              dist[i][j] = min(dist[i][j],
+                               dist[i][k] + dist[k][j])
+3. Repeat until all vertices have been considered as intermediate vertices.
+4. Return the final distance matrix containing the shortest distances
+   between every pair of vertices.
+
+Floyd-Warshall - TC: O(V^3), SC: O(V^2)
+'''
